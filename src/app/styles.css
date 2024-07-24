@@ -1,0 +1,30 @@
+.phone {
+  width: 100%;
+}
+.react-international-phone-input {
+  width: 100%;
+}
+.react-international-phone-country-selector-button {
+  border: 0 !important;
+}
+.react-international-phone-country-selector-button__button-content,
+.react-international-phone-input,
+.react-international-phone-country-selector-button {
+  border: 0 !important;
+}
+
+.ant-spin-dot-item {
+  background-color: rgba(255, 0, 0, 0.808) !important;
+}
+
+.validate{
+  font-size: 10px;
+  font-weight: 500;
+}
+input[type="file"]::file-selector-button {
+  border-radius: 40px;
+  color: white;
+  margin-top: 6px;
+  background-color: #e71010f1;
+  border: 1px solid #e71010f1;
+}
