@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { parseCookies, setCookie, destroyCookie } from 'nookies'
-import {toast,ToastContainer} from "react-toastify"
+import {toast} from "react-toastify"
 import { useSearchParams } from 'next/navigation'
 import OtpInput from 'react-otp-input'
 import Logo from '@/assets/images/logo.png'
@@ -102,7 +102,7 @@ const VerifyEmailOTP = () => {
           
         </div>
       </div>
-      <ToastContainer />
+      
     </>
   )
 }

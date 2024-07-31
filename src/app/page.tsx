@@ -1,13 +1,12 @@
 'use client'
-import React, { useEffect } from "react";
-import {useRouter} from "next/navigation";
-import "./globals.css";
+import React from 'react'
+import './globals.css'
+import Home from '@/components/login_components/Home'
 
-export default function Home() {
-  
+export default function Home1() {
   return (
     <main>
-      <h1 className="text-danger">Hello Bootstrap</h1>
+      <Home />
     </main>
-  );
+  )
 }

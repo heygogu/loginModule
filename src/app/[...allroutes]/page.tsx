@@ -1,21 +1,19 @@
-import Details from '@/components/SignUp'
-import Forgot from '@/components/Forgot'
-import Home from '@/components/Home'
-import Login from '@/components/Login'
-import Reset from '@/components/Reset'
-import UploadImg from '@/components/UploadImg'
-import VerifyEmailOTP from '@/components/VerifyEmailOTP'
-import VerifyPhoneOTP from '@/components/VerifyPhoneOTP'
-import Verified from '@/components/Verified'
-import VerifyOTP from '@/components/VerifyOTP'
+import Details from '@/components/login_components/SignUp'
+import Forgot from '@/components/login_components/Forgot'
+
+import Login from '@/components/login_components/Login'
+import Reset from '@/components/login_components/Reset'
+import UploadImg from '@/components/login_components/UploadImg'
+import VerifyEmailOTP from '@/components/login_components/VerifyEmailOTP'
+import VerifyPhoneOTP from '@/components/login_components/VerifyPhoneOTP'
+import Verified from '@/components/login_components/Verified'
+import VerifyOTP from '@/components/login_components/VerifyOTP'
 
 const MainComponent = ({ params }: { params: { allroutes: string } }) => {
   const path: string = params.allroutes[0]
   console.log(path)
 
   switch (path) {
-    case 'step-1':
-      return <Home />
     case 'sign-up':
       return <Details />
     case 'verify-email-otp':
@@ -26,14 +24,14 @@ const MainComponent = ({ params }: { params: { allroutes: string } }) => {
       return <Verified />
     case 'login':
       return <Login />
-    case 'forgot':
+    case 'forgot-password':
       return <Forgot />
-    case 'reset':
+    case 'reset-password':
       return <Reset />
     case 'verify-otp':
-      return <VerifyOTP/>
+      return <VerifyOTP />
     case 'upload-img':
-      return <UploadImg/>
+      return <UploadImg />
   }
 }
 export default MainComponent

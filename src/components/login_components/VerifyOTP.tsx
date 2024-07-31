@@ -1,12 +1,11 @@
 'use client'
 import React, { useState } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
 import OtpInput from 'react-otp-input'
 import Logo from '@/assets/images/logo.png'
-import { toast,ToastContainer } from 'react-toastify'
+import { toast } from 'react-toastify'
 import '@/app/globals.css'
 import '@/app/styles.css'
 import allapi from '@/handleapi/allapi'
@@ -101,7 +100,7 @@ const VerifyOTP = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
+     
     </>
   )
 }

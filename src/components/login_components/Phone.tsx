@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import Image from 'next/image'
+
 import Link from 'next/link'
 import Logo from '@/assets/images/logo.png'
 import '@/app/globals.css'

@@ -1,12 +1,12 @@
 .phone {
   width: 100%;
 }
-.react-international-phone-input {
+/* .react-international-phone-input {
   width: 100%;
-}
-.react-international-phone-country-selector-button {
+} */
+/* .react-international-phone-country-selector-button {
   border: 0 !important;
-}
+} */
 .react-international-phone-country-selector-button__button-content,
 .react-international-phone-input,
 .react-international-phone-country-selector-button {
@@ -14,17 +14,84 @@
 }
 
 .ant-spin-dot-item {
-  background-color: rgba(255, 0, 0, 0.808) !important;
+  background-color: #c01c2c !important;
 }
-
-.validate{
+* {
+  margin: 0;
+  padding: 0;
+}
+.validate {
   font-size: 10px;
   font-weight: 500;
 }
-input[type="file"]::file-selector-button {
+input[type='file']::file-selector-button {
   border-radius: 40px;
   color: white;
   margin-top: 6px;
   background-color: #e71010f1;
   border: 1px solid #e71010f1;
+}
+input[type='file']{
+  color: rgba(0, 0, 0, 0) 
+}
+
+.footer-color {
+  background-color: #c01c2c;
+
+  background-repeat: no-repeat;
+}
+.label-bg-color {
+  background-color: #801414;
+}
+.label-color {
+  color: #801414;
+}
+
+@font-face {
+  font-family: 'Nunito', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+
+  src: url('/font/Nunito');
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: auto;
+}
+.account-heading {
+  margin-left: 90px;
+}
+footer {
+  height: 220px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../assets/d_assets/footer_bg.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #c01c2c;
+}
+.foot {
+  position: fixed;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  width: 100%;
+  top: calc(69.5vh);
+}
+
+.prof{
+  height: 650px;
+}
+.passwd{
+  height: 700px;
+}
+.user{
+  height: 1500px;
+}
+.ant-switch-checked{
+  background-color: #801414 !important;
 }

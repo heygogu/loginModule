@@ -2,33 +2,27 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { toast, ToastContainer } from 'react-toastify'
+import { toast} from 'react-toastify'
 import allapi from '@/handleapi/allapi'
 import Logo from '@/assets/images/logo.png'
 import { Spin } from 'antd'
 import '@/app/styles.css'
+import { useRouter } from 'next/navigation'
 import '@/app/globals.css'
 import Visible from '@/assets/images/visibility.png'
 import Notvisible from '@/assets/images/visibility_off.png'
-
+import { setCookie } from 'nookies'
 const Login = () => {
+  const router = useRouter()
   const [showSpin, setShowSpin] = useState(false)
   const [passwordVisible, setPasswordVisible] = useState(false)
   const [formData, setFormData] = useState({
-    first_name: '',
-    last_name: '',
     email: '',
-    password: '',
-    phone: '',
-    checkbox: false
+    password: ''
   })
   const [error, setError] = useState({
-    first_name: false,
-    last_name: false,
     email: false,
-    password: false,
-    phone: false,
-    checkbox: false
+    password: false
   })
   const validateData = async (e: any) => {
     e.preventDefault()
@@ -53,8 +47,14 @@ const Login = () => {
     }
     try {
       const apiRes = await allapi.auth.login(payload)
+      allapi?.setToken(apiRes?.access_token)
+      setCookie(null, 'WEB_ACCESS_TOKEN', apiRes.access_token, {
+        maxAge: 30 * 24 * 60 * 60,
+        path: '/'
+      })
       setShowSpin(false)
-      toast.success(`Hey ${apiRes?.first_name}`)
+      toast.success(`Login successfully`)
+      router.replace('/dashboard')
     } catch (e: any) {
       setShowSpin(false)
       toast.warn(e.message)
@@ -120,7 +120,7 @@ const Login = () => {
               </Spin>
             </div>
             <div className='flex justify-end mb-1 relative bottom-3 right-1'>
-              <Link className='text-xs text-red-600 font-semibold ' href={'/forgot'}>
+              <Link className='text-xs text-red-600 font-semibold ' href={'forgot-password'}>
                 Forgot Password ?
               </Link>
             </div>
@@ -146,7 +146,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
     </>
   )
 }

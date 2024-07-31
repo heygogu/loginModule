@@ -6,7 +6,7 @@ import Logo from '@/assets/images/logo.png'
 import '@/app/globals.css'
 import '@/app/styles.css'
 import { useRouter } from 'next/navigation'
-import { toast, ToastContainer } from 'react-toastify'
+import { toast} from 'react-toastify'
 import allapi from '@/handleapi/allapi'
 import { Spin } from 'antd'
 import Visible from '@/assets/images/visibility.png'
@@ -76,7 +76,7 @@ const Reset = () => {
           </form>
         </div>
       </div>
-      <ToastContainer />
+    
     </>
   )
 }

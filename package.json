@@ -9,16 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fontsource/nunito": "^5.0.18",
     "@types/superagent": "^8.1.7",
     "ant-design": "^1.0.0",
     "antd": "^5.19.3",
     "bootstrap": "^5.3.3",
+    "firebase": "^10.12.4",
     "next": "14.2.5",
     "nookies": "^2.5.2",
     "react": "^18",
     "react-dom": "^18",
+    "react-icons": "^5.2.1",
     "react-international-phone": "^4.3.0",
     "react-otp-input": "^3.1.1",
+    "react-phone-number-input": "^3.4.4",
     "react-toastify": "^10.0.5",
     "superagent": "^9.0.2"
   },

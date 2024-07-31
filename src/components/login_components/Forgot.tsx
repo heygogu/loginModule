@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import Image from 'next/image'
-import { toast ,ToastContainer} from 'react-toastify'
+import { toast } from 'react-toastify'
 import { useRouter } from 'next/navigation'
 import Logo from '@/assets/images/logo.png'
 import '@/app/globals.css'
@@ -67,7 +67,7 @@ const Forgot = () => {
           </form>
         </div>
       </div>
-      <ToastContainer />
+     
     </>
   )
 }

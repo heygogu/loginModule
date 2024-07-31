@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { toast, ToastContainer } from 'react-toastify'
+import { toast} from 'react-toastify'
 import { setCookie } from 'nookies'
 import Logo from '@/assets/images/logo.png'
 import { useRouter } from 'next/navigation'
@@ -33,6 +33,7 @@ const Details = () => {
     last_name: false,
     email: false,
     password: false,
+    strongpassword:false,
     phone: false,
     checkbox: false
   })
@@ -47,8 +48,10 @@ const Details = () => {
       setError({ ...error, last_name: true })
     } else if (!formData.email.includes('@')) {
       setError({ ...error, email: true })
+    } else if (formData.password.length === 0) {
+      setError({...error,password:true})
     } else if (!regex.test(formData.password)) {
-      setError({ ...error, password: true })
+      setError({ ...error, strongpassword: true })
     } else if (formData.phone.length < 10) {
       setError({ ...error, phone: true })
     } else if (!formData.checkbox) {
@@ -156,7 +159,7 @@ const Details = () => {
                 </div>
                 {error?.email && (
                   <p className='m-0 text-danger text-xs validate'>
-                    <sup>*</sup>Invalid Email
+                    <sup>*</sup>Please enter email
                   </p>
                 )}
                 <div className='col-12 border-2 border-gray-400 flex justify-between pl-3 pr-3 pt-2 pb-2 rounded-lg mb-1'>
@@ -168,20 +171,27 @@ const Details = () => {
                     value={formData.password}
                     onChange={(e) => {
                       setFormData({ ...formData, password: e.target.value })
-                      setError({ ...error, password: false })
+                      setError({ ...error, password: false,strongpassword: false  })
+                      
                     }}
                     placeholder='Password'
                     style={{ outline: 'none' }}></input>
-                  <span  onClick={() => setPasswordVisible(!passwordVisible)}>
+                  <span onClick={() => setPasswordVisible(!passwordVisible)}>
                     <Image src={passwordVisible ? Visible : Notvisible} height={10} width={20} alt='btn'></Image>
                   </span>
                 </div>
 
                 {error?.password && (
                   <p className='m-0 text-danger text-xs validate'>
+                    <sup>*</sup>Please Enter Password
+                  </p>
+                )}
+                {error?.strongpassword && (
+                  <p className='m-0 text-danger text-xs validate'>
                     <sup>*</sup>Please Enter a Strong Password
                   </p>
                 )}
+
                 <div className='col-12 border-2 border-gray-400 flex justify-between rounded-lg mb-0'>
                   <PhoneInput
                     className='phone'
@@ -196,7 +206,7 @@ const Details = () => {
                 </div>
                 {error?.phone && (
                   <p className='m-0 text-danger text-xs validate'>
-                    <sup>*</sup>Please Enter a Valid Phone Number
+                    <sup>*</sup>Please Enter Phone Number
                   </p>
                 )}
               </div>
@@ -219,11 +229,7 @@ const Details = () => {
                     By Checking it, You agree to the <span className='text-red-500 underline'>Terms of Service</span>{' '}
                     and <span className='text-red-500 underline'> Privacy Policy</span>
                   </p>
-                  {error?.checkbox && (
-                    <p className='m-0 text-danger text-xs validate'>
-                      Can not Proceed Further Unless you agree to Privacy Policy
-                    </p>
-                  )}
+                  {error?.checkbox && <p className='m-0 text-danger text-xs validate'>Please Accept Terms & Conditions</p>}
                 </div>
               </div>
               <div className='row mt-3'>
@@ -249,7 +255,6 @@ const Details = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
     </>
   )
 }

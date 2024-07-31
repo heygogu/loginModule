@@ -3,9 +3,9 @@ import superagent from 'superagent'
 const API_ROOT = 'https://master.project.henceforthsolutions.com:3000/'
 const responseBody = (res: any) => res?.body
 
-let Language = ''
+let setLanguage = ''
 const language = (req: any) => {
-  Language = 'ENGLISH'
+  setLanguage = 'ENGLISH'
 }
 
 let token: any = null
@@ -38,7 +38,6 @@ const requests = {
     superagent.post(`http://139.59.47.49:4004/api/upload/image`, body).use(tokenPlugin).then(responseBody)
 }
 const auth = {
-  
   signup: (payload: any) => requests.post('signup', payload),
   verifyphone: (payload: any) => requests.put('verify-phone', payload),
   verifyemail: (payload: any) => requests.put('verify-email', payload),
@@ -49,7 +48,13 @@ const auth = {
   verifyotp: (payload: any) => requests.put('verify-otp', payload),
   resendPhoneOTP: (payload: any) => requests.put('resend-otp-phone', payload),
   upload: (payload: any) => requests.uploadImage(payload),
-  postImage: (payload: any) => requests.patch('profile', payload)
+  postImage: (payload: any) => requests.patch('profile', payload),
+  getUser: () => requests.get('users/profile'),
+  updatePhone: (payload: any) => requests.patch('phone', payload),
+  updateEmail: (payload: any) => requests.patch('email', payload),
+  updateName: (payload: any) => requests.patch('profile', payload),
+  changePassword: (payload: any) => requests.put('change-password', payload),
+  logout:()=>requests.del('logout')
 }
 const allapi = {
   requests,

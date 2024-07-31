@@ -25,7 +25,7 @@ const Verified = () => {
         const query = { uniqueId: String(searchParams.get('uniqueId')) }
         const queryString = new URLSearchParams(query).toString()
         setShowSpin(false)
-        router.push(`/reset?${queryString}`)
+        router.push(`reset-password?${queryString}`)
       }
     }, 2000)
   }, [])
