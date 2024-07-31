@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getMessaging } from "firebase/messaging";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA9-bgWl07EqDUEZr_1fEiYkEE1IZIO4bQ",
+  apiKey: "",
   authDomain: "auth-57b96.firebaseapp.com",
   projectId: "auth-57b96",
   storageBucket: "auth-57b96.appspot.com",
